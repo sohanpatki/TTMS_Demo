@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="categoryModel"
+            type="com.ttms.myapplication.CategoryViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".FirstFragment">
+
+        <TextView
+            style="@style/category_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <include layout="@layout/divider" />
+
+        <LinearLayout
+            android:id="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/compo_padding"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:padding="@dimen/tv_padding"
+                android:text="@string/search_articles"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:padding="@dimen/tv_padding"
+                android:text="@string/rt_arrow"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        </LinearLayout>
+
+        <include layout="@layout/divider" />
+
+        <!--Popular-->
+
+        <TextView
+            style="@style/category_section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/popular"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <include layout="@layout/divider" />
+
+        <LinearLayout
+            android:id="@+id/viewed_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/compo_padding"
+            android:weightSum="1"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:padding="@dimen/tv_padding"
+                android:text="@string/most_viewed"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:padding="@dimen/tv_padding"
+                android:text="@string/rt_arrow"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        </LinearLayout>
+
+        <include layout="@layout/divider" />
+
+        <LinearLayout
+            android:id="@+id/shared_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/compo_padding"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:padding="@dimen/tv_padding"
+                android:text="@string/most_shared"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:padding="@dimen/tv_padding"
+                android:text="@string/rt_arrow"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        </LinearLayout>
+
+        <include layout="@layout/divider" />
+
+        <LinearLayout
+            android:id="@+id/emailed_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/compo_padding"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:padding="@dimen/tv_padding"
+                android:text="@string/most_emailed"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:padding="@dimen/tv_padding"
+                android:text="@string/rt_arrow"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        </LinearLayout>
+
+        <include layout="@layout/divider" />
+
+    </LinearLayout>
+</layout>
