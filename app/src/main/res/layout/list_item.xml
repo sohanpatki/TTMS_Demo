@@ -20,7 +20,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
-            tools:text="@string/title" />
+            tools:text="@string/title"
+            android:maxLines="2"/>
 
         <TextView
             android:id="@+id/tv_date"

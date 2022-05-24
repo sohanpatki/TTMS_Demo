@@ -13,7 +13,7 @@ import com.ttms.myapplication.databinding.FragmentFirstBinding
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class LandingFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
 
@@ -23,34 +23,34 @@ class FirstFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
-
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.title = "NYT"
 
         binding.searchLayout.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
 
         binding.viewedLayout.setOnClickListener {
-            Toast.makeText(context, "Most Viewed", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_FirstFragment_to_ListFragment)
+            val bundle = Bundle()
+            bundle.putSerializable("ARTICLE_TYPE", ArticleType.VIEWED)
+            findNavController().navigate(R.id.action_FirstFragment_to_ListFragment, bundle)
         }
-
         binding.sharedLayout.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_ListFragment)
+            val bundle = Bundle()
+            bundle.putSerializable("ARTICLE_TYPE", ArticleType.SHARED)
+            findNavController().navigate(R.id.action_FirstFragment_to_ListFragment, bundle)
         }
 
         binding.emailedLayout.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_ListFragment)
-            //findNavController().setGraph(id.ac, Bundle())
+            val bundle = Bundle()
+            bundle.putSerializable("ARTICLE_TYPE", ArticleType.EMAILED)
+            findNavController().navigate(R.id.action_FirstFragment_to_ListFragment, bundle)
         }
 
     }
