@@ -3,8 +3,8 @@ package com.ttms.myapplication
 import com.google.gson.annotations.SerializedName
 
 data class Article(
-    @SerializedName("published_date")
+    @SerializedName(value = "published_date", alternate = ["pub_date"])
     val publishedDate: String,
-    @SerializedName("title")
+    @SerializedName(value = "title", alternate = ["section_name"])
     val title: String,
 )

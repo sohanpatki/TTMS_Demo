@@ -19,12 +19,14 @@ class ListFragment : Fragment() {
     var articlesAdapter: ArticlesAdapter = ArticlesAdapter(ArrayList<Article>())
 
     private var artType: ArticleType? = null
+    private lateinit var topic: String
 
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             artType = it.getSerializable("ARTICLE_TYPE") as ArticleType?
+            topic = it.getString("topic", "")
         }
     }
 
@@ -65,7 +67,7 @@ class ListFragment : Fragment() {
         }
         binding.click.setOnClickListener(View.OnClickListener {
             binding.progressBar.visibility = View.VISIBLE
-            artType?.let { it1 -> model.fetchArticles(it1) }
+            artType?.let { it1 -> model.fetchArticles(it1, topic) }
         })
 
     }

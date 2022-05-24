@@ -14,21 +14,22 @@
         tools:context=".SecondFragment">
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:hint="@string/search_articles_here"
-            android:gravity="center"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/medium_margin"
-            android:layout_gravity="center_horizontal"/>
+            android:gravity="center"
+            android:hint="@string/search_articles_here" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/search"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/item_bottom_padding"
-            android:textAllCaps="false"/>
+            android:text="@string/search"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 </layout>

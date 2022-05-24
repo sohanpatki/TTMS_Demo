@@ -12,7 +12,7 @@ import com.ttms.myapplication.databinding.FragmentSecondBinding
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class SecondFragment : Fragment() {
-
+    val TOPIC: String = "topic"
     private var _binding: FragmentSecondBinding? = null
 
     // This property is only valid between onCreateView and
@@ -21,7 +21,7 @@ class SecondFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
 
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
@@ -33,7 +33,10 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSearch.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_ListFragment)
+            val bundle = Bundle()
+            bundle.putSerializable("ARTICLE_TYPE", ArticleType.SEARCHED)
+            bundle.putString(TOPIC, binding.etSearch.text.toString())
+            findNavController().navigate(R.id.action_SecondFragment_to_ListFragment, bundle)
         }
     }
 
