@@ -16,7 +16,7 @@ import java.util.ArrayList
 class ListFragment : Fragment() {
     private lateinit var model: ListViewModel
     private var _binding: FragmentListBinding? = null
-    var articlesAdapter: ArticlesAdapter = ArticlesAdapter(ArrayList<Article>())
+    private var articlesAdapter: ArticlesAdapter = ArticlesAdapter(ArrayList<Article>())
 
     private var artType: ArticleType? = null
     private lateinit var topic: String
@@ -51,12 +51,12 @@ class ListFragment : Fragment() {
                 //set data in UI
                 binding.progressBar.visibility = View.GONE
                 if (list != null) {
-                    Toast.makeText(context, list.size.toString(), Toast.LENGTH_SHORT)
+                    Toast.makeText(context, "received records = "+list.size.toString(), Toast.LENGTH_SHORT)
                         .show()
                     articlesAdapter.setAdapter(list)
 
                 } else {
-                    Toast.makeText(context, "Empty list", Toast.LENGTH_SHORT)
+                    Toast.makeText(context, "No records received", Toast.LENGTH_SHORT)
                         .show()
                 }
             })

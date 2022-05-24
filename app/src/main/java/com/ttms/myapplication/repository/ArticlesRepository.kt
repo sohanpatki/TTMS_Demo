@@ -33,7 +33,7 @@ class ArticlesRepository {
                 ArticleType.SEARCHED -> TODO()
             }
 
-            call?.enqueue(object : Callback<ApiResponse> {
+            call.enqueue(object : Callback<ApiResponse> {
                 override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
                     if (response.isSuccessful) {
                         listLiveData.postValue(response.body()?.results)
