@@ -34,9 +34,7 @@ class ArticlesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val title: TextView = itemView.findViewById(R.id.tv_title)
     private val date: TextView = itemView.findViewById(R.id.tv_date)
     fun bind(article: Article) {
-        title.text = "Title: " + article.title
+        title.text = article.title
         date.text = article.publishedDate
-
     }
-
 }
