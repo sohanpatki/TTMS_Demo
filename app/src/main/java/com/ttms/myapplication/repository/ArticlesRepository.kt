@@ -19,7 +19,7 @@ class ArticlesRepository {
         var listLiveData: MutableLiveData<ArrayList<Article>> =
             MutableLiveData<ArrayList<Article>>()
 
-        fun getArticles(type: ArticleType): LiveData<ArrayList<Article>> {
+        fun getArticles(type: ArticleType): MutableLiveData<ArrayList<Article>> {
             val apiInterface = RetrofitClient.getInstance()
                 .create(ApiInterface::class.java)//ApiInterface.getApiInterface()
             var call: Call<ApiResponse>? = null
@@ -48,7 +48,7 @@ class ArticlesRepository {
             return listLiveData
         }
 
-        fun getSearchedArticles(searchTopic: String = ""): LiveData<ArrayList<Article>> {
+        fun getSearchedArticles(searchTopic: String = ""): MutableLiveData<ArrayList<Article>> {
             val apiInterface = RetrofitClient.getInstance()
                 .create(ApiInterface::class.java)//ApiInterface.getApiInterface()
             var call: Call<SearchResponse>? = null
