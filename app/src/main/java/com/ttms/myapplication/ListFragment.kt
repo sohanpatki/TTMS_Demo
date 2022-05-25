@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,10 +47,23 @@ class ListFragment : Fragment() {
 
     private fun init() {
         model = ViewModelProvider(this)[ListViewModel::class.java]
+        articlesAdapter.setAdapter(ArrayList<Article>())
+        model.articles = MutableLiveData<ArrayList<Article>>()
+
+        binding.recyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(context)
+            this.adapter = articlesAdapter
+        }
+
         model.articles
-            ?.observe(viewLifecycleOwner, Observer<java.util.ArrayList<Article>> { list ->
+            .observe(viewLifecycleOwner, Observer<java.util.ArrayList<Article>> { list ->
                 //set data in UI
                 binding.progressBar.visibility = View.GONE
+                Toast.makeText(context,
+                    "List observer called",
+                    Toast.LENGTH_SHORT)
+                    .show()
                 if (list != null) {
                     Toast.makeText(context,
                         "received records = " + list.size.toString(),
@@ -62,11 +76,7 @@ class ListFragment : Fragment() {
                         .show()
                 }
             })
-        binding.recyclerView.apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(context)
-            this.adapter = articlesAdapter
-        }
+
         binding.click.setOnClickListener(View.OnClickListener {
             binding.progressBar.visibility = View.VISIBLE
             artType?.let { it1 -> model.fetchArticles(it1, topic) }

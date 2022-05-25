@@ -23,4 +23,5 @@
     <string name="list_fragment_label">ListFragment</string>
     <string name="search_articles_here">Search articles here ...</string>
     <string name="articles">Articles</string>
+    <string name="get_articles">Click for Article!</string>
 </resources>

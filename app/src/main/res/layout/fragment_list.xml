@@ -13,9 +13,11 @@
 
         <Button
             android:id="@+id/click"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ClickMe" />
+            android:text="@string/get_articles"
+            android:layout_centerHorizontal="true">
+        </Button>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
